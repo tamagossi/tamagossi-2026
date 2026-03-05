@@ -1,18 +1,27 @@
 'use client';
 
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import ElegantShape from '../../shared/components/ui/shape-hero';
 import { ArrowDown } from 'lucide-react';
 
 export default function HeroSection({ startAnimation = true }: { startAnimation?: boolean }) {
 	const containerRef = useRef<HTMLDivElement>(null);
+	const { scrollY } = useScroll();
+	const yParallax = useTransform(scrollY, [0, 1000], [0, 400]);
+
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
 
 	const springConfig = { stiffness: 80, damping: 20 };
 	const x = useSpring(mouseX, springConfig);
 	const y = useSpring(mouseY, springConfig);
+
+	const gradientBackground = useTransform(
+		[x, y],
+		([latestX, latestY]) =>
+			`radial-gradient(600px circle at ${latestX}px ${latestY}px, var(--accent-glow), transparent 40%)`
+	);
 
 	useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
@@ -41,20 +50,15 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
 	};
 
 	return (
-		<div
+		<motion.div
 			ref={containerRef}
+			style={{ y: yParallax }}
 			className="relative min-h-screen w-full overflow-hidden bg-background flex flex-col items-center justify-center"
 		>
 			{/* Cursor Glow */}
 			<motion.div
 				className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
-				style={{
-					background: useTransform(
-						[x, y],
-						([latestX, latestY]) =>
-							`radial-gradient(600px circle at ${latestX}px ${latestY}px, var(--accent-glow), transparent 40%)`
-					),
-				}}
+				style={{ background: gradientBackground }}
 			/>
 
 			{/* Floating Shapes */}
@@ -65,10 +69,11 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
 							delay={0.3}
 							width={600}
 							height={140}
-							rotate={12}
+							rotate={20}
 							gradient="from-accent/10"
 							className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
 						/>
+
 						<ElegantShape
 							delay={0.5}
 							width={500}
@@ -81,7 +86,7 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
 							delay={0.4}
 							width={300}
 							height={80}
-							rotate={-8}
+							rotate={20}
 							gradient="from-accent/5"
 							className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
 						/>
@@ -94,12 +99,30 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
 							className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
 						/>
 						<ElegantShape
+							delay={0.5}
+							width={140}
+							height={600}
+							rotate={0}
+							gradient="from-accent/20"
+							className="hidden lg:block left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+						/>
+
+						<ElegantShape
 							delay={0.7}
 							width={150}
 							height={40}
 							rotate={-25}
 							gradient="from-accent/5"
 							className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+						/>
+
+						<ElegantShape
+							delay={0.8}
+							width={150}
+							height={40}
+							rotate={-80}
+							gradient="from-accent/10"
+							className="hidden lg:block right-[20%] bottom-[50%]"
 						/>
 					</>
 				)}
@@ -188,7 +211,7 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
 			</motion.div>
 
 			{/* Bottom Gradient Fade */}
-			<div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
-		</div>
+			<div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-background via-transparent to-transparent pointer-events-none"></div>
+		</motion.div>
 	);
 }

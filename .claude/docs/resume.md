@@ -78,10 +78,10 @@ Fintech platform providing integrated business tools and services to help SMEs t
 ## **Technologies and Languages**
 
 - Languages
-    TypeScript, JavaScript, Dart, Golang, HTML/CSS
+  TypeScript, JavaScript, Dart, Golang, HTML/CSS
 - Framework
-    React, Next.js, Vue, Nuxt, React Native, Flutter, Fiber, Node.js
+  React, Next.js, Vue, Nuxt, React Native, Flutter, Fiber, Node.js
 - Technologies
-    PostgreSQL, Git, TailwindCSS, Chakra UI, AntDesign, React Query, Docker
+  PostgreSQL, Git, TailwindCSS, Chakra UI, AntDesign, React Query, Docker
 - Other
-    Data structures and algorithms, Domain-driven design, Test-driven development
+  Data structures and algorithms, Domain-driven design, Test-driven development

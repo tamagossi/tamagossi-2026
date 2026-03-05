@@ -26,12 +26,12 @@
 
 ```css
 :root {
-	--bg: #222831;
-	--surface: #393e46;
-	--accent: #ffd369;
-	--text: #eeeeee;
-	--muted: rgba(238, 238, 238, 0.45);
-	--accent-glow: rgba(255, 211, 105, 0.07);
+  --bg: #222831;
+  --surface: #393e46;
+  --accent: #ffd369;
+  --text: #eeeeee;
+  --muted: rgba(238, 238, 238, 0.45);
+  --accent-glow: rgba(255, 211, 105, 0.07);
 }
 ```
 
@@ -113,12 +113,12 @@ npx shadcn@latest add drawer  # for nav drawer
 - Words: `"Annyeong"` · `"Hello"` · `"Bonjour"` · `"Hallo"` · `"Shamburasun"` · `"Tamagossi"`
 - Each word: Cormorant Garamond italic, ~5–7rem, color `#EEEEEE`
 - Animation per word:
-    - Fade in: `opacity 0 → 1`, `y: 20px → 0`, duration `0.4s`
-    - Hold: `0.6s`
-    - Fade out: `opacity 1 → 0`, duration `0.3s`
+  - Fade in: `opacity 0 → 1`, `y: 20px → 0`, duration `0.4s`
+  - Hold: `0.6s`
+  - Fade out: `opacity 1 → 0`, duration `0.3s`
 - **Final word is "Tamagossi"** — instead of fading out normally:
-    - Scale up aggressively: `scale: 1 → 8`, `opacity: 1 → 0`, duration `0.7s`, ease `easeIn`
-    - Simulates the text rushing toward the camera (zoom-into-face effect)
+  - Scale up aggressively: `scale: 1 → 8`, `opacity: 1 → 0`, duration `0.7s`, ease `easeIn`
+  - Simulates the text rushing toward the camera (zoom-into-face effect)
 - After sequence ends: splash div fades out (`opacity: 0`, `0.4s`), then `display: none` / unmounts
 - Hero section is visible beneath but `pointer-events: none` until splash is gone
 - Use `AnimatePresence` from Motion for clean unmount
@@ -131,7 +131,7 @@ animations fire correctly.
 
 ```tsx
 // Pseudocode structure
-const words = ['Annyeong', 'Hello', 'Bonjour', 'Hallo', 'Shamburasun', 'Tamagossi'];
+const words = ["Annyeong", "Hello", "Bonjour", "Hallo", "Shamburasun", "Tamagossi"];
 // cycle index every ~1.3s
 // when index === words.length - 1, trigger zoom-out finale
 // after finale, call onComplete() → parent sets splashDone = true
@@ -277,80 +277,79 @@ subtext:  "~8 years building products across startups, scale-ups, and tech compa
 
 ```tsx
 const data = [
-	{
-		title: '2022 — Now',
-		content: (
-			<>
-				<p className="role">Chapter Lead Product Engineer</p>
-				<p className="company">Current Company · Jakarta</p>
-				<p className="desc">
-					Leading a chapter of engineers across product squads. Define engineering
-					standards, conduct technical reviews, and ship core platform features in Next.js
-					and Go Fiber.
-				</p>
-				<div className="tags">
-					<Tag>Next.js</Tag>
-					<Tag>Go Fiber</Tag>
-					<Tag>System Design</Tag>
-					<Tag>Tech Leadership</Tag>
-				</div>
-			</>
-		),
-	},
-	{
-		title: '2020 — 2022',
-		content: (
-			<>
-				<p className="role">Senior Full-Stack Engineer</p>
-				<p className="company">Previous Company · Jakarta</p>
-				<p className="desc">
-					Built and maintained high-traffic consumer products. Owned full delivery from
-					API design to frontend implementation with focus on performance and DX.
-				</p>
-				<div className="tags">
-					<Tag>React</Tag>
-					<Tag>Node.js</Tag>
-					<Tag>PostgreSQL</Tag>
-				</div>
-			</>
-		),
-	},
-	{
-		title: '2018 — 2020',
-		content: (
-			<>
-				<p className="role">Full-Stack Engineer</p>
-				<p className="company">Startup · Jakarta</p>
-				<p className="desc">
-					Early engineer on a B2B SaaS product. Shaped the frontend architecture from
-					scratch and integrated third-party APIs for payments and logistics.
-				</p>
-				<div className="tags">
-					<Tag>Vue.js</Tag>
-					<Tag>Laravel</Tag>
-					<Tag>MySQL</Tag>
-				</div>
-			</>
-		),
-	},
-	{
-		title: '2016 — 2018',
-		content: (
-			<>
-				<p className="role">Frontend Developer</p>
-				<p className="company">Digital Agency · Jakarta</p>
-				<p className="desc">
-					Delivered client projects for e-commerce and media brands. First real exposure
-					to performance optimization and cross-browser compatibility at scale.
-				</p>
-				<div className="tags">
-					<Tag>HTML/CSS</Tag>
-					<Tag>JavaScript</Tag>
-					<Tag>jQuery</Tag>
-				</div>
-			</>
-		),
-	},
+  {
+    title: "2022 — Now",
+    content: (
+      <>
+        <p className="role">Chapter Lead Product Engineer</p>
+        <p className="company">Current Company · Jakarta</p>
+        <p className="desc">
+          Leading a chapter of engineers across product squads. Define engineering standards,
+          conduct technical reviews, and ship core platform features in Next.js and Go Fiber.
+        </p>
+        <div className="tags">
+          <Tag>Next.js</Tag>
+          <Tag>Go Fiber</Tag>
+          <Tag>System Design</Tag>
+          <Tag>Tech Leadership</Tag>
+        </div>
+      </>
+    ),
+  },
+  {
+    title: "2020 — 2022",
+    content: (
+      <>
+        <p className="role">Senior Full-Stack Engineer</p>
+        <p className="company">Previous Company · Jakarta</p>
+        <p className="desc">
+          Built and maintained high-traffic consumer products. Owned full delivery from API design
+          to frontend implementation with focus on performance and DX.
+        </p>
+        <div className="tags">
+          <Tag>React</Tag>
+          <Tag>Node.js</Tag>
+          <Tag>PostgreSQL</Tag>
+        </div>
+      </>
+    ),
+  },
+  {
+    title: "2018 — 2020",
+    content: (
+      <>
+        <p className="role">Full-Stack Engineer</p>
+        <p className="company">Startup · Jakarta</p>
+        <p className="desc">
+          Early engineer on a B2B SaaS product. Shaped the frontend architecture from scratch and
+          integrated third-party APIs for payments and logistics.
+        </p>
+        <div className="tags">
+          <Tag>Vue.js</Tag>
+          <Tag>Laravel</Tag>
+          <Tag>MySQL</Tag>
+        </div>
+      </>
+    ),
+  },
+  {
+    title: "2016 — 2018",
+    content: (
+      <>
+        <p className="role">Frontend Developer</p>
+        <p className="company">Digital Agency · Jakarta</p>
+        <p className="desc">
+          Delivered client projects for e-commerce and media brands. First real exposure to
+          performance optimization and cross-browser compatibility at scale.
+        </p>
+        <div className="tags">
+          <Tag>HTML/CSS</Tag>
+          <Tag>JavaScript</Tag>
+          <Tag>jQuery</Tag>
+        </div>
+      </>
+    ),
+  },
 ];
 ```
 
@@ -374,14 +373,14 @@ const data = [
 **Per project, as it becomes active (`scrollYProgress` in `[i/3, (i+1)/3]`):**
 
 1. **Background color transition** (smooth, `useTransform` + `interpolate`):
-    - Project 0: `#222831`
-    - Project 1: `#1a2230` (cool blue-shift)
-    - Project 2: `#231f1a` (warm brown-shift)
+   - Project 0: `#222831`
+   - Project 1: `#1a2230` (cool blue-shift)
+   - Project 2: `#231f1a` (warm brown-shift)
 
 2. **Project number** — DM Mono, `8rem`, top-left, `--muted`, `opacity: 0.12`
 
 3. **Project title** — Cormorant Garamond italic, `~5rem`
-    - `whileInView={{ y: 0, opacity: 1 }}`, `initial={{ y: 60, opacity: 0 }}`
+   - `whileInView={{ y: 0, opacity: 1 }}`, `initial={{ y: 60, opacity: 0 }}`
 
 4. **Subtitle** — DM Sans 300, `--muted`
 
@@ -392,9 +391,9 @@ const data = [
 7. **Right side placeholder image** — `aspect-ratio: 16/9`, background `#393E46`,
    `border-radius: 12px`, `width: 45%`. Parallaxes slower than scroll:
 
-    ```ts
-    const imgY = useTransform(scrollYProgress, [i / 3, (i + 1) / 3], ['5%', '-5%']);
-    ```
+   ```ts
+   const imgY = useTransform(scrollYProgress, [i / 3, (i + 1) / 3], ["5%", "-5%"]);
+   ```
 
 8. **"View case study →"** — DM Sans, `#FFD369`, `text-decoration: underline` on hover
    → links to `/work/[slug]`
@@ -403,30 +402,30 @@ const data = [
 
 ```ts
 const projects = [
-	{
-		id: '01',
-		slug: 'project-alpha',
-		title: 'Project Alpha',
-		subtitle: 'Internal tooling platform',
-		desc: 'A developer-facing tooling platform built to reduce onboarding time for new engineers. Reduced setup from 2 days to under 2 hours.',
-		tags: ['Next.js', 'Go', 'Docker'],
-	},
-	{
-		id: '02',
-		slug: 'project-beta',
-		title: 'Project Beta',
-		subtitle: 'Consumer mobile web app',
-		desc: 'High-traffic mobile web experience serving 500k+ monthly users. Focused on Core Web Vitals and offline capability via service workers.',
-		tags: ['React', 'PWA', 'Redis'],
-	},
-	{
-		id: '03',
-		slug: 'project-gamma',
-		title: 'Project Gamma',
-		subtitle: 'Real-time analytics dashboard',
-		desc: 'Live analytics dashboard for ops teams. Replaced spreadsheet-based reporting with real-time charts and automated alerting.',
-		tags: ['Vue.js', 'Go Fiber', 'WebSocket'],
-	},
+  {
+    id: "01",
+    slug: "project-alpha",
+    title: "Project Alpha",
+    subtitle: "Internal tooling platform",
+    desc: "A developer-facing tooling platform built to reduce onboarding time for new engineers. Reduced setup from 2 days to under 2 hours.",
+    tags: ["Next.js", "Go", "Docker"],
+  },
+  {
+    id: "02",
+    slug: "project-beta",
+    title: "Project Beta",
+    subtitle: "Consumer mobile web app",
+    desc: "High-traffic mobile web experience serving 500k+ monthly users. Focused on Core Web Vitals and offline capability via service workers.",
+    tags: ["React", "PWA", "Redis"],
+  },
+  {
+    id: "03",
+    slug: "project-gamma",
+    title: "Project Gamma",
+    subtitle: "Real-time analytics dashboard",
+    desc: "Live analytics dashboard for ops teams. Replaced spreadsheet-based reporting with real-time charts and automated alerting.",
+    tags: ["Vue.js", "Go Fiber", "WebSocket"],
+  },
 ];
 ```
 
@@ -449,8 +448,8 @@ Use the **OrbitingSkills** component (Document 4 in references), adapted as foll
 - `bg-gray-800/90` → `bg-[#393E46]/90`
 - Central icon gradient: `#FFD369 → #393E46` (instead of cyan → purple)
 - Orbit glow colors:
-    - Inner orbit: `rgba(255, 211, 105, 0.4)` (accent yellow)
-    - Outer orbit: `rgba(57, 62, 70, 0.8)` (surface)
+  - Inner orbit: `rgba(255, 211, 105, 0.4)` (accent yellow)
+  - Outer orbit: `rgba(57, 62, 70, 0.8)` (surface)
 - Hover icon glow: use each icon's natural brand color (keep as-is — looks great)
 
 **Replace icon set with Tamagossi's actual stack:**
@@ -501,9 +500,9 @@ Each item: DM Sans 300, --text
 
 ```ts
 const posts = [
-	{ title: 'Why I stopped writing unit tests first', date: 'Feb 2025', readTime: '6 min' },
-	{ title: 'Designing Go Fiber middleware the right way', date: 'Jan 2025', readTime: '8 min' },
-	{ title: "What 'Chapter Lead' actually means day to day", date: 'Dec 2024', readTime: '5 min' },
+  { title: "Why I stopped writing unit tests first", date: "Feb 2025", readTime: "6 min" },
+  { title: "Designing Go Fiber middleware the right way", date: "Jan 2025", readTime: "8 min" },
+  { title: "What 'Chapter Lead' actually means day to day", date: "Dec 2024", readTime: "5 min" },
 ];
 ```
 
@@ -601,16 +600,16 @@ viewport={{ once: true }}
 ```tsx
 // app/layout.tsx
 export const metadata = {
-	title: 'Tamagossi — Chapter Lead Product Engineer',
-	description:
-		'Full-stack engineer and chapter lead based in Jakarta. ' +
-		'Building products with Next.js, React, Go, and Go Fiber. ' +
-		'Open to remote opportunities in EU and US.',
-	openGraph: {
-		title: 'Tamagossi',
-		description: 'Chapter Lead Product Engineer · Jakarta · Remote-ready',
-		url: 'https://tamagossi.dev',
-	},
+  title: "Tamagossi — Chapter Lead Product Engineer",
+  description:
+    "Full-stack engineer and chapter lead based in Jakarta. " +
+    "Building products with Next.js, React, Go, and Go Fiber. " +
+    "Open to remote opportunities in EU and US.",
+  openGraph: {
+    title: "Tamagossi",
+    description: "Chapter Lead Product Engineer · Jakarta · Remote-ready",
+    url: "https://tamagossi.dev",
+  },
 };
 ```
 
@@ -627,15 +626,15 @@ npx shadcn@latest add drawer
 If using Tailwind v4, extend `index.css`:
 
 ```css
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
-	--bg: #222831;
-	--surface: #393e46;
-	--accent: #ffd369;
-	--text: #eeeeee;
-	--muted: rgba(238, 238, 238, 0.45);
-	--accent-glow: rgba(255, 211, 105, 0.07);
+  --bg: #222831;
+  --surface: #393e46;
+  --accent: #ffd369;
+  --text: #eeeeee;
+  --muted: rgba(238, 238, 238, 0.45);
+  --accent-glow: rgba(255, 211, 105, 0.07);
 }
 ```
 

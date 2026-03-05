@@ -1,172 +1,172 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { cn } from '@/shared/utils/cn';
+import React from "react";
+import { cn } from "@/shared/utils/cn";
 
 interface Skill {
-	id: string;
-	orbitRadius: number;
-	iconType: string;
-	label: string;
-	speed: number;
-	phaseShift?: number;
+  id: string;
+  orbitRadius: number;
+  iconType: string;
+  label: string;
+  speed: number;
+  phaseShift?: number;
 }
 
 const TechIcon = ({ type }: { type: string }) => {
-	// Simple SVG placeholders for brands
-	switch (type) {
-		case 'typescript':
-			return <span className="font-bold text-blue-500 text-xs">TS</span>;
-		case 'go':
-			return <span className="font-bold text-cyan-500 text-xs">GO</span>;
-		case 'javascript':
-			return <span className="font-bold text-yellow-400 text-xs">JS</span>;
-		case 'nextjs':
-			return <span className="font-bold text-white text-xs">NEXT</span>;
-		case 'react':
-			return <span className="font-bold text-blue-400 text-xs">RCT</span>;
-		case 'vue':
-			return <span className="font-bold text-green-500 text-xs">VUE</span>;
-		case 'gofiber':
-			return <span className="font-bold text-green-400 text-xs">FBR</span>;
-		default:
-			return <span className="font-bold text-gray-400 text-xs">?</span>;
-	}
+  // Simple SVG placeholders for brands
+  switch (type) {
+    case "typescript":
+      return <span className="text-xs font-bold text-blue-500">TS</span>;
+    case "go":
+      return <span className="text-xs font-bold text-cyan-500">GO</span>;
+    case "javascript":
+      return <span className="text-xs font-bold text-yellow-400">JS</span>;
+    case "nextjs":
+      return <span className="text-xs font-bold text-white">NEXT</span>;
+    case "react":
+      return <span className="text-xs font-bold text-blue-400">RCT</span>;
+    case "vue":
+      return <span className="text-xs font-bold text-green-500">VUE</span>;
+    case "gofiber":
+      return <span className="text-xs font-bold text-green-400">FBR</span>;
+    default:
+      return <span className="text-xs font-bold text-gray-400">?</span>;
+  }
 };
 
 export default function OrbitingSkills() {
-	const innerSkills: Skill[] = [
-		{
-			id: 'typescript',
-			orbitRadius: 100,
-			iconType: 'typescript',
-			label: 'TypeScript',
-			speed: 20,
-		},
-		{ id: 'go', orbitRadius: 100, iconType: 'go', label: 'Go', speed: 20, phaseShift: 240 },
-		{
-			id: 'javascript',
-			orbitRadius: 100,
-			iconType: 'javascript',
-			label: 'JavaScript',
-			speed: 20,
-			phaseShift: 120,
-		},
-	];
+  const innerSkills: Skill[] = [
+    {
+      iconType: "typescript",
+      id: "typescript",
+      label: "TypeScript",
+      orbitRadius: 100,
+      speed: 20,
+    },
+    { iconType: "go", id: "go", label: "Go", orbitRadius: 100, phaseShift: 240, speed: 20 },
+    {
+      iconType: "javascript",
+      id: "javascript",
+      label: "JavaScript",
+      orbitRadius: 100,
+      phaseShift: 120,
+      speed: 20,
+    },
+  ];
 
-	const outerSkills: Skill[] = [
-		{ id: 'nextjs', orbitRadius: 180, iconType: 'nextjs', label: 'Next.js', speed: 30 },
-		{
-			id: 'react',
-			orbitRadius: 180,
-			iconType: 'react',
-			label: 'React',
-			speed: 30,
-			phaseShift: 90,
-		},
-		{
-			id: 'vue',
-			orbitRadius: 180,
-			iconType: 'vue',
-			label: 'Vue / Nuxt',
-			speed: 30,
-			phaseShift: 180,
-		},
-		{
-			id: 'gofiber',
-			orbitRadius: 180,
-			iconType: 'gofiber',
-			label: 'Go Fiber',
-			speed: 30,
-			phaseShift: 270,
-		},
-	];
+  const outerSkills: Skill[] = [
+    { iconType: "nextjs", id: "nextjs", label: "Next.js", orbitRadius: 180, speed: 30 },
+    {
+      iconType: "react",
+      id: "react",
+      label: "React",
+      orbitRadius: 180,
+      phaseShift: 90,
+      speed: 30,
+    },
+    {
+      iconType: "vue",
+      id: "vue",
+      label: "Vue / Nuxt",
+      orbitRadius: 180,
+      phaseShift: 180,
+      speed: 30,
+    },
+    {
+      iconType: "gofiber",
+      id: "gofiber",
+      label: "Go Fiber",
+      orbitRadius: 180,
+      phaseShift: 270,
+      speed: 30,
+    },
+  ];
 
-	return (
-		<div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden">
-			{/* Center */}
-			<div className="z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-accent to-surface shadow-2xl">
-				<span className="text-2xl font-bold text-white">T</span>
-			</div>
+  return (
+    <div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden">
+      {/* Center */}
+      <div className="from-accent to-surface z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br shadow-2xl">
+        <span className="text-2xl font-bold text-white">T</span>
+      </div>
 
-			{/* Inner Ring */}
-			<div className="absolute h-[200px] w-[200px] rounded-full border border-accent/40 opacity-50" />
+      {/* Inner Ring */}
+      <div className="border-accent/40 absolute h-[200px] w-[200px] rounded-full border opacity-50" />
 
-			{innerSkills.map((skill) => (
-				<OrbitingItem
-					key={skill.id}
-					radius={100}
-					duration={skill.speed}
-					angle={skill.phaseShift || 0}
-				>
-					<div className="flex h-12 w-12 items-center justify-center rounded-full bg-surface border border-accent/20 hover:border-accent transition-colors shadow-lg">
-						<TechIcon type={skill.iconType} />
-					</div>
-				</OrbitingItem>
-			))}
+      {innerSkills.map((skill) => (
+        <OrbitingItem
+          key={skill.id}
+          angle={skill.phaseShift || 0}
+          duration={skill.speed}
+          radius={100}
+        >
+          <div className="bg-surface border-accent/20 hover:border-accent flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-colors">
+            <TechIcon type={skill.iconType} />
+          </div>
+        </OrbitingItem>
+      ))}
 
-			{/* Outer Ring */}
-			<div className="absolute h-[360px] w-[360px] rounded-full border border-surface opacity-50" />
+      {/* Outer Ring */}
+      <div className="border-surface absolute h-[360px] w-[360px] rounded-full border opacity-50" />
 
-			{outerSkills.map((skill) => (
-				<OrbitingItem
-					key={skill.id}
-					radius={180}
-					duration={skill.speed}
-					reverse
-					angle={skill.phaseShift || 0}
-				>
-					<div className="flex h-14 w-14 items-center justify-center rounded-full bg-surface border border-accent/20 hover:border-accent transition-colors shadow-lg">
-						<TechIcon type={skill.iconType} />
-					</div>
-				</OrbitingItem>
-			))}
-		</div>
-	);
+      {outerSkills.map((skill) => (
+        <OrbitingItem
+          key={skill.id}
+          reverse
+          angle={skill.phaseShift || 0}
+          duration={skill.speed}
+          radius={180}
+        >
+          <div className="bg-surface border-accent/20 hover:border-accent flex h-14 w-14 items-center justify-center rounded-full border shadow-lg transition-colors">
+            <TechIcon type={skill.iconType} />
+          </div>
+        </OrbitingItem>
+      ))}
+    </div>
+  );
 }
 
 function OrbitingItem({
-	children,
-	radius,
-	duration,
-	reverse = false,
-	angle = 0,
+  angle = 0,
+  children,
+  duration,
+  radius,
+  reverse = false,
 }: {
-	children: React.ReactNode;
-	radius: number;
-	duration: number;
-	delay?: number;
-	reverse?: boolean;
-	angle?: number;
+  children: React.ReactNode;
+  radius: number;
+  duration: number;
+  delay?: number;
+  reverse?: boolean;
+  angle?: number;
 }) {
-	return (
-		<div
-			className={cn('absolute flex items-center justify-center')}
-			style={{
-				width: radius * 2,
-				height: radius * 2,
-				transform: `rotate(${angle}deg)`, // Initial offset
-			}}
-		>
-			<div
-				className={cn('absolute w-full h-full animate-spin')}
-				style={{
-					animationDuration: `${duration}s`,
-					animationDirection: reverse ? 'reverse' : 'normal',
-				}}
-			>
-				<div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-					<div
-						className="animate-spin"
-						style={{
-							animationDuration: `${duration}s`,
-							animationDirection: reverse ? 'normal' : 'reverse',
-						}}
-					>
-						{children}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div
+      className={cn("absolute flex items-center justify-center")}
+      style={{
+        height: radius * 2,
+        transform: `rotate(${angle}deg)`, // Initial offset
+        width: radius * 2,
+      }}
+    >
+      <div
+        className={cn("absolute h-full w-full animate-spin")}
+        style={{
+          animationDirection: reverse ? "reverse" : "normal",
+          animationDuration: `${duration}s`,
+        }}
+      >
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div
+            className="animate-spin"
+            style={{
+              animationDirection: reverse ? "normal" : "reverse",
+              animationDuration: `${duration}s`,
+            }}
+          >
+            {children}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

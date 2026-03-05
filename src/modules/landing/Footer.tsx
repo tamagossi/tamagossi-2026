@@ -1,56 +1,56 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Github, Linkedin, FileText } from 'lucide-react';
+import Link from "next/link";
+import { FileText, Github, Linkedin } from "lucide-react";
 
 export default function Footer() {
-	return (
-		<footer className="bg-background py-20 md:py-32 border-t border-foreground/5">
-			<div className="container mx-auto px-4 md:px-6 flex flex-col items-center text-center">
-				<h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground mb-4">
-					Let&apos;s work together.
-				</h2>
+  return (
+    <footer className="bg-background border-foreground/5 border-t py-20 md:py-32">
+      <div className="container mx-auto flex flex-col items-center px-4 text-center md:px-6">
+        <h2 className="text-foreground mb-4 font-serif text-4xl font-bold md:text-6xl lg:text-7xl">
+          Let&apos;s work together.
+        </h2>
 
-				<p className="text-muted font-sans font-light text-lg md:text-xl max-w-xl mb-4">
-					Available for remote full-time or contract.
-					<br />
-					Based in Jakarta (UTC+7). Async-friendly.
-				</p>
+        <p className="text-muted mb-4 max-w-xl font-sans text-lg font-light md:text-xl">
+          Available for remote full-time or contract.
+          <br />
+          Based in Jakarta (UTC+7). Async-friendly.
+        </p>
 
-				<a
-					href="mailto:hello@tamagossi.dev"
-					className="text-xl lg:text-2xl font-mono text-accent hover:underline decoration-2 underline-offset-8 mb-16 transition-all"
-				>
-					hello@tamagossi.dev
-				</a>
+        <a
+          className="text-accent mb-16 font-mono text-xl decoration-2 underline-offset-8 transition-all hover:underline lg:text-2xl"
+          href="mailto:hello@tamagossi.dev"
+        >
+          hello@tamagossi.dev
+        </a>
 
-				<div className="flex items-center gap-8 mb-20">
-					<Link
-						href="https://github.com/tamagossi"
-						target="_blank"
-						className="text-muted hover:text-accent transition-colors"
-					>
-						<span className="sr-only">GitHub</span>
-						<Github className="w-6 h-6" />
-					</Link>
-					<Link
-						href="https://linkedin.com/in/tamagossi"
-						target="_blank"
-						className="text-muted hover:text-accent transition-colors"
-					>
-						<span className="sr-only">LinkedIn</span>
-						<Linkedin className="w-6 h-6" />
-					</Link>
-					<Link href="/resume" className="text-muted hover:text-accent transition-colors">
-						<span className="sr-only">Resume</span>
-						<FileText className="w-6 h-6" />
-					</Link>
-				</div>
+        <div className="mb-20 flex items-center gap-8">
+          <Link
+            className="text-muted hover:text-accent transition-colors"
+            href="https://github.com/tamagossi"
+            target="_blank"
+          >
+            <span className="sr-only">GitHub</span>
+            <Github className="h-6 w-6" />
+          </Link>
+          <Link
+            className="text-muted hover:text-accent transition-colors"
+            href="https://linkedin.com/in/tamagossi"
+            target="_blank"
+          >
+            <span className="sr-only">LinkedIn</span>
+            <Linkedin className="h-6 w-6" />
+          </Link>
+          <Link className="text-muted hover:text-accent transition-colors" href="/resume">
+            <span className="sr-only">Resume</span>
+            <FileText className="h-6 w-6" />
+          </Link>
+        </div>
 
-				<div className="w-full border-t border-foreground/5 pt-8">
-					<p className="font-mono text-xs text-foreground/30">© Tamagossi 2026</p>
-				</div>
-			</div>
-		</footer>
-	);
+        <div className="border-foreground/5 w-full border-t pt-8">
+          <p className="text-foreground/30 font-mono text-xs">© Tamagossi 2026</p>
+        </div>
+      </div>
+    </footer>
+  );
 }

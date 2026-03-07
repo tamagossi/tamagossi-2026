@@ -38,14 +38,14 @@ export default function BlogTeaser() {
             <motion.div
               key={post.slug}
               className="group"
-              initial={{ opacity: 0, x: -20 }}
-              transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
             >
               <Link
-                className="group-hover:bg-accent/5 flex flex-col justify-between px-4 py-8 transition-colors md:flex-row md:items-center md:py-12"
                 href={`/blog/${post.slug}`}
+                className="group-hover:bg-accent/5 flex flex-col justify-between px-4 py-8 transition-colors md:flex-row md:items-center md:py-12"
               >
                 <h3 className="text-foreground group-hover:text-accent mb-2 font-sans text-xl font-light transition-colors md:mb-0 md:text-3xl">
                   {post.title}
@@ -62,8 +62,8 @@ export default function BlogTeaser() {
 
         <div className="mt-12 flex justify-end">
           <Link
-            className="text-accent inline-flex items-center gap-2 font-mono hover:underline"
             href="/blog"
+            className="text-accent inline-flex items-center gap-2 font-mono hover:underline"
           >
             All posts <ArrowRight className="h-4 w-4" />
           </Link>

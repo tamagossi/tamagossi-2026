@@ -51,8 +51,8 @@ export default function ProjectsSection() {
   return (
     <div ref={containerRef} className="relative h-[300vh]">
       <motion.div
-        className="sticky top-0 flex h-screen items-center overflow-hidden"
         style={{ backgroundColor }}
+        className="sticky top-0 flex h-screen items-center overflow-hidden"
       >
         <div className="relative container mx-auto h-full px-4 md:px-6">
           {projects.map((project, i) => {
@@ -81,8 +81,8 @@ export default function ProjectsSection() {
             return (
               <motion.div
                 key={project.id}
-                className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-8 p-4 md:flex-row md:gap-20 md:p-20"
                 style={{ opacity, pointerEvents: "auto", y }}
+                className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-8 p-4 md:flex-row md:gap-20 md:p-20"
               >
                 {/* Left Content */}
                 <div className="z-10 max-w-xl flex-1 space-y-6">
@@ -115,8 +115,8 @@ export default function ProjectsSection() {
                   </div>
 
                   <Link
-                    className="text-accent group mt-4 inline-flex items-center gap-2 hover:underline"
                     href={`/project/${project.slug}`}
+                    className="text-accent group mt-4 inline-flex items-center gap-2 hover:underline"
                   >
                     View case study{" "}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -125,8 +125,8 @@ export default function ProjectsSection() {
 
                 {/* Right Image Placeholder */}
                 <motion.div
-                  className="bg-surface border-foreground/5 group relative aspect-video w-full flex-1 overflow-hidden rounded-xl border shadow-2xl"
                   style={{ y: imgY }}
+                  className="bg-surface border-foreground/5 group relative aspect-video w-full flex-1 overflow-hidden rounded-xl border shadow-2xl"
                 >
                   {/* Abstract placeholder visual */}
                   <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/20" />

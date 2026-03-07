@@ -14,12 +14,12 @@ const TextRoll: React.FC<{
 }> = ({ center = false, children, className }) => {
   return (
     <motion.span
-      className={cn("relative block overflow-hidden", className)}
       initial="initial"
       whileHover="hovered"
       style={{
         lineHeight: 0.85,
       }}
+      className={cn("relative block overflow-hidden", className)}
     >
       {/* Top Text (Slides up) */}
       <div>

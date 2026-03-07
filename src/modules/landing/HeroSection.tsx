@@ -54,13 +54,13 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
   return (
     <motion.div
       ref={containerRef}
-      className="bg-background relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
       style={{ y: yParallax }}
+      className="bg-background relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
     >
       {/* Cursor Glow */}
       <motion.div
-        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
         style={{ background: gradientBackground }}
+        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
       />
 
       {/* Floating Shapes */}
@@ -68,63 +68,63 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
         {startAnimation && (
           <>
             <ElegantShape
-              className="top-[15%] left-[-10%] md:top-[20%] md:left-[-5%]"
               delay={0.3}
-              gradient="from-accent/10"
-              height={140}
               rotate={20}
               width={600}
+              height={140}
+              gradient="from-accent/10"
+              className="top-[15%] left-[-10%] md:top-[20%] md:left-[-5%]"
             />
 
             <ElegantShape
-              className="top-[70%] right-[-5%] md:top-[75%] md:right-[0%]"
               delay={0.5}
-              gradient="from-surface/60"
+              width={500}
               height={120}
               rotate={-15}
-              width={500}
+              gradient="from-surface/60"
+              className="top-[70%] right-[-5%] md:top-[75%] md:right-[0%]"
             />
             <ElegantShape
-              className="bottom-[5%] left-[5%] md:bottom-[10%] md:left-[10%]"
               delay={0.4}
-              gradient="from-accent/5"
               height={80}
               rotate={20}
               width={300}
+              gradient="from-accent/5"
+              className="bottom-[5%] left-[5%] md:bottom-[10%] md:left-[10%]"
             />
             <ElegantShape
-              className="top-[10%] right-[5%] md:top-[15%] md:right-[15%]"
               delay={0.6}
-              gradient="from-surface/40"
               height={60}
               rotate={20}
               width={200}
+              gradient="from-surface/40"
+              className="top-[10%] right-[5%] md:top-[15%] md:right-[15%]"
             />
             <ElegantShape
-              className="top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 lg:block"
-              delay={0.5}
-              gradient="from-accent/20"
-              height={600}
               rotate={0}
+              delay={0.5}
               width={140}
+              height={600}
+              gradient="from-accent/20"
+              className="top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 lg:block"
             />
 
             <ElegantShape
-              className="top-[5%] left-[20%] hidden md:top-[10%] md:left-[30%] md:block"
               delay={0.7}
-              gradient="from-accent/5"
               height={40}
-              rotate={-25}
               width={150}
+              rotate={-25}
+              gradient="from-accent/5"
+              className="top-[5%] left-[20%] hidden md:top-[10%] md:left-[30%] md:block"
             />
 
             <ElegantShape
-              className="right-[20%] bottom-[50%] hidden lg:block"
               delay={0.8}
-              gradient="from-accent/10"
               height={40}
-              rotate={-80}
               width={150}
+              rotate={-80}
+              gradient="from-accent/10"
+              className="right-[20%] bottom-[50%] hidden lg:block"
             />
           </>
         )}
@@ -132,10 +132,10 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
 
       {/* Top Right Badge */}
       <motion.div
-        animate={startAnimation ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-        className="text-accent absolute top-8 right-8 flex items-center gap-2 font-mono text-xs md:text-sm"
         initial={{ opacity: 0, x: 30 }}
         transition={{ delay: 1.4, duration: 0.8 }}
+        animate={startAnimation ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+        className="text-accent absolute top-8 right-8 flex items-center gap-2 font-mono text-xs md:text-sm"
       >
         <div className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
@@ -148,11 +148,11 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
       <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
         <div className="mx-auto max-w-4xl">
           <motion.div
-            animate={startAnimation ? "visible" : "hidden"}
-            className="bg-surface/50 border-surface mb-8 inline-flex items-center gap-2 rounded-full border px-3 py-1 md:mb-12"
             custom={0}
             initial="hidden"
             variants={fadeUpVariants}
+            animate={startAnimation ? "visible" : "hidden"}
+            className="bg-surface/50 border-surface mb-8 inline-flex items-center gap-2 rounded-full border px-3 py-1 md:mb-12"
           >
             <span className="text-muted font-mono text-xs tracking-wide uppercase md:text-sm">
               Chapter Lead Product Engineer
@@ -160,41 +160,41 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
           </motion.div>
 
           <motion.h1
-            animate={startAnimation ? "visible" : "hidden"}
-            className="text-foreground mb-6 font-serif text-6xl font-bold tracking-tight md:mb-8 md:text-8xl lg:text-9xl"
             custom={1}
             initial="hidden"
             variants={fadeUpVariants}
+            animate={startAnimation ? "visible" : "hidden"}
+            className="text-foreground mb-6 font-serif text-6xl font-bold tracking-tight md:mb-8 md:text-8xl lg:text-9xl"
           >
             Tamagossi
           </motion.h1>
 
           <motion.h3
-            animate={startAnimation ? "visible" : "hidden"}
-            className="text-foreground/80 mb-2 font-serif text-3xl font-semibold tracking-tight md:mb-4 md:text-5xl"
             custom={2}
             initial="hidden"
             variants={fadeUpVariants}
+            animate={startAnimation ? "visible" : "hidden"}
+            className="text-foreground/80 mb-2 font-serif text-3xl font-semibold tracking-tight md:mb-4 md:text-5xl"
           >
             I build products, I lead teams.
           </motion.h3>
 
           <motion.h2
-            animate={startAnimation ? "visible" : "hidden"}
-            className="text-accent-gradient mb-8 font-serif text-2xl font-semibold tracking-tight md:text-4xl"
             custom={4}
             initial="hidden"
             variants={fadeUpVariants}
+            animate={startAnimation ? "visible" : "hidden"}
+            className="text-accent-gradient mb-8 font-serif text-2xl font-semibold tracking-tight md:text-4xl"
           >
             Ship things that matter.
           </motion.h2>
 
           <motion.p
-            animate={startAnimation ? "visible" : "hidden"}
-            className="text-muted mx-auto mt-8 max-w-2xl font-sans text-base leading-relaxed font-light md:text-xl"
             custom={5}
             initial="hidden"
             variants={fadeUpVariants}
+            animate={startAnimation ? "visible" : "hidden"}
+            className="text-muted mx-auto mt-8 max-w-2xl font-sans text-base leading-relaxed font-light md:text-xl"
           >
             Product engineer and chapter lead based in Bandung.
           </motion.p>
@@ -203,10 +203,10 @@ export default function HeroSection({ startAnimation = true }: { startAnimation?
 
       {/* Scroll Hint */}
       <motion.div
-        animate={startAnimation ? { opacity: 1 } : { opacity: 0 }}
-        className="text-muted absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         transition={{ delay: 2, duration: 1 }}
+        animate={startAnimation ? { opacity: 1 } : { opacity: 0 }}
+        className="text-muted absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
       >
         <span className="font-mono text-xs tracking-widest uppercase">scroll</span>
         <ArrowDown className="h-4 w-4 animate-bounce" />

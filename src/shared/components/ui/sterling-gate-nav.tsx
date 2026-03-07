@@ -96,12 +96,12 @@ export default function SterlingGateNav({ isOpen, onClose }: SterlingGateNavProp
           {links.map((link, i) => (
             <div key={link.label} className="overflow-hidden">
               <Link
+                href={link.href}
+                onClick={onClose}
                 ref={(el) => {
                   linkRefs.current[i] = el;
                 }}
                 className="text-foreground hover:text-accent block origin-left font-serif text-[4rem] leading-tight italic transition-colors duration-200 md:text-[6rem]"
-                href={link.href}
-                onClick={onClose}
               >
                 {link.label}
               </Link>
@@ -110,13 +110,13 @@ export default function SterlingGateNav({ isOpen, onClose }: SterlingGateNavProp
         </nav>
 
         <div className="text-muted mt-12 flex gap-8 font-mono text-sm">
-          <a className="hover:text-accent transition-colors" href="mailto:hello@tamagossi.dev">
+          <a href="mailto:hello@tamagossi.dev" className="hover:text-accent transition-colors">
             hello@tamagossi.dev
           </a>
-          <a className="hover:text-accent transition-colors" href="#">
+          <a href="#" className="hover:text-accent transition-colors">
             GitHub
           </a>
-          <a className="hover:text-accent transition-colors" href="#">
+          <a href="#" className="hover:text-accent transition-colors">
             LinkedIn
           </a>
         </div>

@@ -18,30 +18,30 @@ export default function Footer() {
         </p>
 
         <a
-          className="text-accent mb-16 font-mono text-xl decoration-2 underline-offset-8 transition-all hover:underline lg:text-2xl"
           href="mailto:hello@tamagossi.dev"
+          className="text-accent mb-16 font-mono text-xl decoration-2 underline-offset-8 transition-all hover:underline lg:text-2xl"
         >
           hello@tamagossi.dev
         </a>
 
         <div className="mb-20 flex items-center gap-8">
           <Link
-            className="text-muted hover:text-accent transition-colors"
-            href="https://github.com/tamagossi"
             target="_blank"
+            href="https://github.com/tamagossi"
+            className="text-muted hover:text-accent transition-colors"
           >
             <span className="sr-only">GitHub</span>
             <Github className="h-6 w-6" />
           </Link>
           <Link
-            className="text-muted hover:text-accent transition-colors"
-            href="https://linkedin.com/in/tamagossi"
             target="_blank"
+            href="https://linkedin.com/in/tamagossi"
+            className="text-muted hover:text-accent transition-colors"
           >
             <span className="sr-only">LinkedIn</span>
             <Linkedin className="h-6 w-6" />
           </Link>
-          <Link className="text-muted hover:text-accent transition-colors" href="/resume">
+          <Link href="/resume" className="text-muted hover:text-accent transition-colors">
             <span className="sr-only">Resume</span>
             <FileText className="h-6 w-6" />
           </Link>

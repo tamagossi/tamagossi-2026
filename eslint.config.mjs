@@ -18,25 +18,6 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-unused-vars": "off",
       "no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
-      "perfectionist/sort-objects": [
-        "warn",
-        {
-          groups: ["unknown", "multiline-property"],
-          order: "asc",
-          partitionByComment: true,
-          type: "natural",
-        },
-      ],
-      "react/jsx-sort-props": [
-        "warn",
-        {
-          callbacksLast: false,
-          multiline: "last",
-          noSortAlphabetically: false,
-          reservedFirst: true,
-          shorthandFirst: true,
-        },
-      ],
       "unused-imports/no-unused-vars": [
         "warn",
         {
@@ -44,6 +25,50 @@ const eslintConfig = defineConfig([
           argsIgnorePattern: "^_",
           vars: "all",
           varsIgnorePattern: "^_",
+        },
+      ],
+
+      // Perfectionist: Object sorting
+      "perfectionist/sort-objects": [
+        "error",
+        {
+          groups: ["unknown", "multiline-property"],
+          partitionByComment: true,
+          type: "alphabetical",
+        },
+      ],
+
+      // Perfectionist: JSX Props sorting (least to longest line, multiline last)
+      "react/jsx-sort-props": "off",
+      "perfectionist/sort-jsx-props": [
+        "error",
+        {
+          order: "asc",
+          type: "line-length",
+        },
+      ],
+
+      // Perfectionist: Exports
+      "perfectionist/sort-exports": [
+        "error",
+        {
+          type: "alphabetical",
+        },
+      ],
+
+      // Perfectionist: Named Exports
+      "perfectionist/sort-named-exports": [
+        "error",
+        {
+          type: "alphabetical",
+        },
+      ],
+
+      // Perfectionist: Variable Declarations (if available, otherwise fallback/ignore)
+      "perfectionist/sort-variable-declarations": [
+        "error",
+        {
+          type: "alphabetical",
         },
       ],
     },

@@ -17,8 +17,8 @@ export default function AboutMeSection() {
         <div className="container px-8 md:px-12 lg:px-4">
           <div className="mx-auto max-w-4xl">
             <TextGradientScroll
-              className="justify-center text-center font-sans text-2xl leading-relaxed font-light md:text-3xl lg:text-4xl"
               manualProgress={scrollYProgress}
+              className="justify-center text-center font-sans text-2xl leading-relaxed font-light md:text-3xl lg:text-4xl"
               text="I am a Product Engineer and Chapter Lead at Staffinc Group. With over 8 years of experience across fintech, education, and workforce management, I specialize in architecting scalable Front-End and Back-End solutions while remaining deeply hands-on with the code."
             />
           </div>

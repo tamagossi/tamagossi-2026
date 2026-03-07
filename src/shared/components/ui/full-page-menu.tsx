@@ -22,10 +22,10 @@ export default function FullPageMenu({ isOpen, menus, onClose }: FullPageMenuPro
       {isOpen && (
         <motion.div
           animate={{ opacity: 1, y: 0 }}
-          className="bg-background text-foreground fixed inset-0 z-[1000] flex flex-col items-center justify-center"
           exit={{ opacity: 0, y: "100%" }}
           initial={{ opacity: 0, y: "100%" }}
           transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+          className="bg-background text-foreground fixed inset-0 z-1000 flex flex-col items-center justify-center"
         >
           <ul className="flex min-h-full w-full flex-1 flex-col items-center justify-center gap-4 px-7 py-3">
             {menus.map((item, index) => (
@@ -33,7 +33,7 @@ export default function FullPageMenu({ isOpen, menus, onClose }: FullPageMenuPro
                 key={index}
                 className="relative flex cursor-pointer flex-col items-center overflow-visible"
               >
-                <Link className="relative flex items-start" href={item.href} onClick={onClose}>
+                <Link href={item.href} onClick={onClose} className="relative flex items-start">
                   <TextRoll
                     center
                     className="hover:text-accent text-5xl leading-[0.8] font-extrabold tracking-[-0.03em] uppercase transition-colors lg:text-7xl"

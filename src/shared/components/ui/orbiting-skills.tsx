@@ -85,7 +85,7 @@ export default function OrbitingSkills() {
   return (
     <div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden">
       {/* Center */}
-      <div className="from-accent to-surface z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br shadow-2xl">
+      <div className="from-accent to-surface z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-br shadow-2xl">
         <span className="text-2xl font-bold text-white">T</span>
       </div>
 
@@ -94,10 +94,10 @@ export default function OrbitingSkills() {
 
       {innerSkills.map((skill) => (
         <OrbitingItem
-          key={skill.id}
-          angle={skill.phaseShift || 0}
-          duration={skill.speed}
           radius={100}
+          key={skill.id}
+          duration={skill.speed}
+          angle={skill.phaseShift || 0}
         >
           <div className="bg-surface border-accent/20 hover:border-accent flex h-12 w-12 items-center justify-center rounded-full border shadow-lg transition-colors">
             <TechIcon type={skill.iconType} />
@@ -110,11 +110,11 @@ export default function OrbitingSkills() {
 
       {outerSkills.map((skill) => (
         <OrbitingItem
-          key={skill.id}
           reverse
-          angle={skill.phaseShift || 0}
-          duration={skill.speed}
           radius={180}
+          key={skill.id}
+          duration={skill.speed}
+          angle={skill.phaseShift || 0}
         >
           <div className="bg-surface border-accent/20 hover:border-accent flex h-14 w-14 items-center justify-center rounded-full border shadow-lg transition-colors">
             <TechIcon type={skill.iconType} />

@@ -58,19 +58,19 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
 
   return (
     <motion.div
-      className="bg-background fixed inset-0 z-[9999] flex items-center justify-center"
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
+      className="bg-background fixed inset-0 z-[9999] flex items-center justify-center"
     >
       <div className="grid w-full place-items-center">
         <AnimatePresence>
           {index < words.length - 1 ? (
             <motion.h1
               key={words[index]}
-              animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
-              className="text-foreground col-start-1 row-start-1 font-serif text-[3rem] font-bold md:text-[7rem]"
-              initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
+              animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+              initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+              className="text-foreground col-start-1 row-start-1 font-serif text-[3rem] font-bold md:text-[7rem]"
               exit={{
                 filter: "blur(10px)",
                 opacity: 0,
@@ -84,9 +84,9 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
             <motion.h1
               key="final"
               animate={{ opacity: 1, scale: 1 }}
-              className="col-start-1 row-start-1 font-serif text-[3rem] font-bold text-white md:text-[7rem]"
               initial={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="col-start-1 row-start-1 font-serif text-[3rem] font-bold text-white md:text-[7rem]"
               exit={{
                 filter: "blur(20px)",
                 opacity: 0,

@@ -1,45 +1,39 @@
-"use client";
-
-import { useRef } from "react";
 import Link from "next/link";
 import { projects } from "@/shared/constants/projects";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
-export default function ProjectsSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"],
-    target: containerRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(projects.length - 1) * 100}vw`]);
-
-  const backgroundColor = useTransform(
-    scrollYProgress,
-    [0, 0.33, 0.66, 1],
-    ["#030303", "#050505", "#080808", "#080808"]
-  );
-
+export default function ProjectsPage() {
   return (
-    <div ref={containerRef} className="relative h-[400vh]">
-      <motion.div
-        style={{ backgroundColor }}
-        className="sticky top-0 flex h-screen items-center overflow-hidden"
+    <div className="bg-background text-foreground min-h-screen p-8 md:p-20">
+      <Link
+        href="/"
+        className="text-accent fixed top-8 left-8 z-50 flex items-center gap-2 hover:underline"
       >
-        <motion.div style={{ x }} className="flex">
-          {projects.map((project) => (
+        <ArrowLeft className="h-4 w-4" /> Back to Home
+      </Link>
+
+      <div className="mx-auto max-w-6xl pt-20">
+        <h1 className="mb-4 font-serif text-4xl italic md:text-6xl">Selected Works</h1>
+        <p className="text-muted mb-20 max-w-xl font-sans text-lg font-light">
+          A collection of projects I&apos;ve worked on, ranging from internal tools to high-traffic
+          consumer apps.
+        </p>
+
+        <div className="space-y-32">
+          {projects.map((project, index) => (
             <div
               key={project.id}
-              className="flex h-screen w-screen flex-shrink-0 flex-col items-center justify-center gap-8 p-4 md:flex-row md:gap-20 md:p-20"
+              className={`flex flex-col gap-8 md:flex-row md:gap-20 ${
+                index % 2 === 1 ? "md:flex-row-reverse" : ""
+              }`}
             >
-              {/* Left Content */}
-              <div className="z-10 max-w-xl flex-1 space-y-6">
+              {/* Content */}
+              <div className="flex-1 space-y-6">
                 <div className="relative">
-                  <span className="text-foreground/5 absolute -top-12 -left-4 z-0 font-mono text-[6rem] select-none md:-top-20 md:-left-20 md:text-[10rem]">
+                  <span className="text-foreground/5 absolute -top-12 -left-4 z-0 font-mono text-[6rem] select-none md:-top-20 md:-left-20 md:text-[8rem]">
                     {project.id}
                   </span>
-                  <h2 className="text-foreground relative z-10 font-serif text-4xl italic md:text-7xl">
+                  <h2 className="text-foreground relative z-10 font-serif text-3xl italic md:text-5xl">
                     {project.title}
                   </h2>
                 </div>
@@ -72,9 +66,8 @@ export default function ProjectsSection() {
                 </Link>
               </div>
 
-              {/* Right Image Placeholder */}
-              <div className="bg-surface border-foreground/5 group relative aspect-video w-full flex-1 overflow-hidden rounded-xl border shadow-2xl">
-                {/* Abstract placeholder visual */}
+              {/* Image Placeholder */}
+              <div className="bg-surface border-foreground/5 group relative aspect-video w-full flex-1 overflow-hidden rounded-xl border shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/20" />
                 <div className="text-foreground/20 absolute right-4 bottom-4 font-mono text-xs">
                   Placeholder for {project.title}
@@ -82,8 +75,8 @@ export default function ProjectsSection() {
               </div>
             </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

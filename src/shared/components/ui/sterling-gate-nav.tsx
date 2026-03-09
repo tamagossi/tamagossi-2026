@@ -11,7 +11,7 @@ interface SterlingGateNavProps {
 }
 
 const links = [
-  { href: "/#projects", label: "Work" },
+  { href: "/projects", label: "Work" },
   { href: "/#blog", label: "Writing" },
   { href: "/about", label: "About" },
   { href: "mailto:hello@tamagossi.dev", label: "Contact" },

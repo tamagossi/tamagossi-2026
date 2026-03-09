@@ -6,8 +6,8 @@ export const navigationItems = [
   },
   {
     description: "[1]",
-    href: "/projets",
-    name: "Project",
+    href: "/projects",
+    name: "Projects",
   },
   {
     description: "[2]",

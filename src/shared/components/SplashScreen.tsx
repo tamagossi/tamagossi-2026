@@ -47,7 +47,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
     if (index === words.length) {
       const timer = setTimeout(() => {
         setIsVisible(false);
-        // sessionStorage.setItem('splashShown', 'true');
+        sessionStorage.setItem("splashShown", "true");
         onComplete();
       }, 1500); // Wait for zoom animation
       return () => clearTimeout(timer);

@@ -21,17 +21,67 @@ export default function ProjectsSection() {
     ["#030303", "#050505", "#080808", "#080808"]
   );
 
+  if (!projects.length) return null;
+
   return (
     <div ref={containerRef} className="relative h-[400vh]">
       <motion.div
         style={{ backgroundColor }}
         className="sticky top-0 flex h-screen items-center overflow-hidden"
       >
+        <div className="absolute top-0 right-0 left-0 z-20 flex w-full items-center justify-between px-4 py-6 md:px-20 md:py-10">
+          <motion.div
+            viewport={{ once: false }}
+            exit={{ opacity: 0, x: -50 }}
+            className="flex flex-col gap-2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, staggerChildren: 0.1 }}
+          >
+            <motion.h2
+              viewport={{ once: false }}
+              exit={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-foreground text-4xl font-light tracking-tighter uppercase md:text-6xl"
+            >
+              Projects
+            </motion.h2>
+            <motion.p
+              viewport={{ once: false }}
+              exit={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-muted-foreground text-sm md:text-base"
+            >
+              Selected works from 2020-2026
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            viewport={{ once: false }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <Link
+              href="/projects"
+              className="group text-foreground flex items-center gap-2 text-sm tracking-wider uppercase hover:underline"
+            >
+              View all projects
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+        </div>
+
         <motion.div style={{ x }} className="flex">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="flex h-screen w-screen flex-shrink-0 flex-col items-center justify-center gap-8 p-4 md:flex-row md:gap-20 md:p-20"
+              className="flex h-screen w-screen shrink-0 flex-col items-center justify-center gap-8 p-4 md:flex-row md:gap-20 md:p-20"
             >
               {/* Left Content */}
               <div className="z-10 max-w-xl flex-1 space-y-6">

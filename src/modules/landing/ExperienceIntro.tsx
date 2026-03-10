@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { FluidTextMorph } from "../../shared/components/ui/fluid-text-morph";
@@ -11,6 +12,15 @@ const WORD_PAIRS: [string, string][] = [
 ];
 
 export default function ExperienceIntro({ onComplete }: { onComplete: () => void }) {
+  useEffect(() => {
+    // Prevent scrolling on mount
+    document.body.style.overflow = "hidden";
+    // Restore scrolling on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   return (
     <div className="bg-background flex h-full w-full items-center justify-center overflow-hidden">
       <motion.div

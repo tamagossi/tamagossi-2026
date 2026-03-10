@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 
 import { Timeline } from "../../shared/components/ui/timeline";
 import { EXPERIENCES } from "../../shared/constants/experiences";
@@ -14,15 +14,29 @@ const Tag = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function ExperienceSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [hasPlayed, setHasPlayed] = useState(false);
   const [showIntro, setShowIntro] = useState(false);
 
-  const handleViewportEnter = () => {
-    if (!hasPlayed) {
-      setShowIntro(true);
-      setHasPlayed(true);
-    }
-  };
+  const { scrollYProgress } = useScroll({
+    offset: ["start end", "start start"],
+    target: containerRef,
+  });
+
+  useEffect(() => {
+    if (hasPlayed) return;
+
+    const checkScroll = (latest: number) => {
+      if (latest >= 1) {
+        setShowIntro(true);
+        setHasPlayed(true);
+      }
+    };
+
+    checkScroll(scrollYProgress.get());
+
+    return scrollYProgress.on("change", checkScroll);
+  }, [hasPlayed, scrollYProgress]);
 
   const data = EXPERIENCES.map((experience) => ({
     title: experience.period,
@@ -48,8 +62,7 @@ export default function ExperienceSection() {
 
   return (
     <motion.div
-      onViewportEnter={handleViewportEnter}
-      viewport={{ amount: 0.2, once: true }}
+      ref={containerRef}
       className="relative min-h-screen w-full"
     >
       <AnimatePresence>

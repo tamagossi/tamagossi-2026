@@ -1,5 +1,9 @@
+import exampleMd from "@/content/projects/example.md";
+import matter from "gray-matter";
+
 export interface Project {
   color: string;
+  content?: string;
   desc: string;
   id: string;
   slug: string;
@@ -8,7 +12,13 @@ export interface Project {
   title: string;
 }
 
+const { content, data: frontmatter } = matter(exampleMd);
+
 export const projects: Project[] = [
+  {
+    ...(frontmatter as Project),
+    content,
+  },
   {
     color: "#030303",
     desc: "A developer-facing tooling platform built to reduce onboarding time for new engineers. Reduced setup from 2 days to under 2 hours.",
